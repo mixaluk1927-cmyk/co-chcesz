@@ -23,7 +23,7 @@ function ZamowieniePage() {
     event.preventDefault();
     const dane = new FormData(event.currentTarget);
     const tekst = [`Dzień dobry, chcę złożyć zamówienie.`, `Sposób: ${sposob}`, `Imię i nazwisko: ${dane.get("imie")}`, `Telefon: ${dane.get("telefon")}`, sposob === "Dostawa" ? `Adres: ${dane.get("adres")}` : "Odbiór osobisty", `Zamówienie i uwagi: ${dane.get("uwagi")}`].join("\n");
-    window.open(`https://wa.me/48792697582?text=${encodeURIComponent(tekst)}`, "_blank", "noopener,noreferrer");
+    window.location.href = `https://wa.me/48792697582?text=${encodeURIComponent(tekst)}`;
   };
   return <div className="min-h-screen px-5 pb-24 pt-32 lg:px-8">
     <PageHeading eyebrow="Szybko i wygodnie" title="Zamówienie" text="Wypełnij formularz, a gotowe zamówienie otworzy się w WhatsApp." />
