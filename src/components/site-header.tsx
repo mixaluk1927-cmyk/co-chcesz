@@ -39,7 +39,7 @@ export function SiteHeader() {
             <Phone aria-hidden="true" className="size-4 text-flame" /> {telefonWidoczny}
           </a>
           <Button asChild variant="flame">
-            <Link to="/zamowienie">Zamów teraz</Link>
+            <Link to="/zamowienie" search={{ danie: "" }}>Zamów teraz</Link>
           </Button>
         </div>
         <Button
@@ -67,7 +67,7 @@ export function SiteHeader() {
               </Link>
             ))}
             <Button asChild variant="flame" className="mt-4">
-              <Link to="/zamowienie" onClick={() => setOtwarte(false)}>Zamów teraz</Link>
+              <Link to="/zamowienie" search={{ danie: "" }} onClick={() => setOtwarte(false)}>Zamów teraz</Link>
             </Button>
           </div>
         </nav>

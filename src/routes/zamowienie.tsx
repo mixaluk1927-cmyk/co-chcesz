@@ -8,7 +8,7 @@ import { Textarea } from "@/components/ui/textarea";
 import { PageHeading } from "@/components/page-heading";
 
 export const Route = createFileRoute("/zamowienie")({
-  validateSearch: (search: Record<string, unknown>) => ({ danie: typeof search.danie === "string" ? search.danie : "" }),
+  validateSearch: (search: Record<string, unknown>) => ({ danie: typeof search["danie"] === "string" ? search["danie"] : "" }),
   head: () => ({ meta: [
     { title: "Zamówienie — Co Chcesz?" }, { name: "description", content: "Zamów kaczkę lub kurczaka z dostawą albo odbiorem osobistym przez WhatsApp." },
     { property: "og:title", content: "Zamówienie — Co Chcesz?" }, { property: "og:description", content: "Złóż szybkie zamówienie z dostawą lub odbiorem." },
