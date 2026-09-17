@@ -10,33 +10,102 @@
 
 import { Route as rootRouteImport } from './routes/__root'
 import { Route as IndexRouteImport } from './routes/index'
+import { Route as KontaktRouteImport } from './routes/kontakt'
+import { Route as MenuRouteImport } from './routes/menu'
+import { Route as ONasRouteImport } from './routes/o-nas'
+import { Route as PolitykaPrywatnosciRouteImport } from './routes/polityka-prywatnosci'
+import { Route as ZamowienieRouteImport } from './routes/zamowienie'
 
 const IndexRoute = IndexRouteImport.update({
   id: '/',
   path: '/',
   getParentRoute: () => rootRouteImport,
 } as any)
+const KontaktRoute = KontaktRouteImport.update({
+  id: '/kontakt',
+  path: '/kontakt',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const MenuRoute = MenuRouteImport.update({
+  id: '/menu',
+  path: '/menu',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const ONasRoute = ONasRouteImport.update({
+  id: '/o-nas',
+  path: '/o-nas',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const PolitykaPrywatnosciRoute = PolitykaPrywatnosciRouteImport.update({
+  id: '/polityka-prywatnosci',
+  path: '/polityka-prywatnosci',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const ZamowienieRoute = ZamowienieRouteImport.update({
+  id: '/zamowienie',
+  path: '/zamowienie',
+  getParentRoute: () => rootRouteImport,
+} as any)
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
+  '/kontakt': typeof KontaktRoute
+  '/menu': typeof MenuRoute
+  '/o-nas': typeof ONasRoute
+  '/polityka-prywatnosci': typeof PolitykaPrywatnosciRoute
+  '/zamowienie': typeof ZamowienieRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
+  '/kontakt': typeof KontaktRoute
+  '/menu': typeof MenuRoute
+  '/o-nas': typeof ONasRoute
+  '/polityka-prywatnosci': typeof PolitykaPrywatnosciRoute
+  '/zamowienie': typeof ZamowienieRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
+  '/kontakt': typeof KontaktRoute
+  '/menu': typeof MenuRoute
+  '/o-nas': typeof ONasRoute
+  '/polityka-prywatnosci': typeof PolitykaPrywatnosciRoute
+  '/zamowienie': typeof ZamowienieRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
-  fullPaths: '/'
+  fullPaths:
+    | '/'
+    | '/kontakt'
+    | '/menu'
+    | '/o-nas'
+    | '/polityka-prywatnosci'
+    | '/zamowienie'
   fileRoutesByTo: FileRoutesByTo
-  to: '/'
-  id: '__root__' | '/'
+  to:
+    | '/'
+    | '/kontakt'
+    | '/menu'
+    | '/o-nas'
+    | '/polityka-prywatnosci'
+    | '/zamowienie'
+  id:
+    | '__root__'
+    | '/'
+    | '/kontakt'
+    | '/menu'
+    | '/o-nas'
+    | '/polityka-prywatnosci'
+    | '/zamowienie'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
+  KontaktRoute: typeof KontaktRoute
+  MenuRoute: typeof MenuRoute
+  ONasRoute: typeof ONasRoute
+  PolitykaPrywatnosciRoute: typeof PolitykaPrywatnosciRoute
+  ZamowienieRoute: typeof ZamowienieRoute
 }
 
 declare module '@tanstack/react-router' {
@@ -48,11 +117,51 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof IndexRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/kontakt': {
+      id: '/kontakt'
+      path: '/kontakt'
+      fullPath: '/kontakt'
+      preLoaderRoute: typeof KontaktRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/menu': {
+      id: '/menu'
+      path: '/menu'
+      fullPath: '/menu'
+      preLoaderRoute: typeof MenuRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/o-nas': {
+      id: '/o-nas'
+      path: '/o-nas'
+      fullPath: '/o-nas'
+      preLoaderRoute: typeof ONasRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/polityka-prywatnosci': {
+      id: '/polityka-prywatnosci'
+      path: '/polityka-prywatnosci'
+      fullPath: '/polityka-prywatnosci'
+      preLoaderRoute: typeof PolitykaPrywatnosciRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/zamowienie': {
+      id: '/zamowienie'
+      path: '/zamowienie'
+      fullPath: '/zamowienie'
+      preLoaderRoute: typeof ZamowienieRouteImport
+      parentRoute: typeof rootRouteImport
+    }
   }
 }
 
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
+  KontaktRoute: KontaktRoute,
+  MenuRoute: MenuRoute,
+  ONasRoute: ONasRoute,
+  PolitykaPrywatnosciRoute: PolitykaPrywatnosciRoute,
+  ZamowienieRoute: ZamowienieRoute,
 }
 export const routeTree = rootRouteImport
   ._addFileChildren(rootRouteChildren)
