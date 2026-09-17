@@ -13,6 +13,7 @@ const buttonVariants = cva(
         flame: "bg-flame text-ink shadow-brand hover:bg-brand hover:text-brand-foreground",
         brand: "bg-brand text-brand-foreground shadow-brand hover:bg-flame hover:text-ink",
         ghostOnDark: "text-brand-foreground hover:bg-brand-foreground/10 hover:text-flame",
+        outlineOnDark: "border border-brand-foreground/50 bg-transparent text-brand-foreground hover:border-flame hover:text-flame",
         destructive: "bg-destructive text-destructive-foreground shadow-sm hover:bg-destructive/90",
         outline:
           "border border-input bg-background shadow-sm hover:bg-accent hover:text-accent-foreground",
