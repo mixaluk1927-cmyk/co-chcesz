@@ -37,9 +37,21 @@ function ZamowieniePage() {
         <div aria-hidden="true" className="absolute -right-10 -top-10 -z-10 size-40 rounded-full bg-flame/30 blur-3xl" />
         <Clock3 className="size-9 text-flame" /><h2 className="mt-5 font-display text-2xl font-black uppercase">Czas dostawy: 30 minut</h2><p className="mt-3 text-sm leading-6 text-brand-foreground/70">Dania pakujemy tuż po przygotowaniu, aby dotarły gorące i świeże.</p>
       </aside>
-      <form onSubmit={wyslij} className="relative space-y-5 overflow-hidden rounded-md border border-flame/20 bg-gradient-to-br from-card/95 to-background/90 p-6 shadow-brand backdrop-blur-sm sm:p-8">
+      <form onSubmit={wyslij} className="relative space-y-5 overflow-hidden rounded-md border border-flame/20 bg-gradient-to-br from-flame/15 via-background to-brand/10 p-6 shadow-brand sm:p-8">
         <div aria-hidden="true" className="absolute inset-x-0 top-0 h-1.5 bg-gradient-to-r from-brand via-flame to-brand" />
-        <div aria-hidden="true" className="absolute -right-16 -top-16 -z-10 size-48 rounded-full bg-flame/10 blur-3xl" />
+        <div aria-hidden="true" className="pointer-events-none absolute inset-0 -z-10 overflow-hidden">
+          <div className="drift-blob-a absolute -right-16 -top-16 size-48 rounded-full bg-flame/25 blur-3xl" />
+          <div className="drift-blob-b absolute -left-10 bottom-0 size-40 rounded-full bg-brand/20 blur-3xl" />
+          {[
+            { left: "10%", size: 4, duration: "8s", delay: "0s" },
+            { left: "28%", size: 3, duration: "9.5s", delay: "1.5s" },
+            { left: "48%", size: 4, duration: "7.5s", delay: "3s" },
+            { left: "68%", size: 3, duration: "10s", delay: "0.8s" },
+            { left: "85%", size: 4, duration: "8.5s", delay: "2.4s" },
+          ].map((ember, i) => (
+            <span key={i} className="ember-particle bg-flame" style={{ left: ember.left, width: ember.size, height: ember.size, animationDuration: ember.duration, animationDelay: ember.delay }} />
+          ))}
+        </div>
         <fieldset><legend className="mb-3 text-sm font-bold">Sposób odbioru</legend><div className="grid grid-cols-2 gap-3">
           <Button type="button" variant={sposob === "Dostawa" ? "brand" : "outline"} onClick={() => setSposob("Dostawa")}><Truck /> Dostawa</Button>
           <Button type="button" variant={sposob === "Odbiór osobisty" ? "brand" : "outline"} onClick={() => setSposob("Odbiór osobisty")}><Package /> Odbiór osobisty</Button>
