@@ -33,8 +33,13 @@ function ZamowieniePage() {
       <PageHeading onDark eyebrow="Szybko i wygodnie" title="Zamówienie" text="Wypełnij formularz, a gotowe zamówienie otworzy się w WhatsApp." />
     </div>
     <div className="relative mx-auto mt-4 grid max-w-5xl gap-8 px-5 lg:grid-cols-[1fr_1.5fr] lg:px-8">
-      <aside className="rounded-md bg-ink/90 p-7 text-brand-foreground backdrop-blur-sm"><Clock3 className="size-9 text-flame" /><h2 className="mt-5 font-display text-2xl font-black uppercase">Czas dostawy: 30 minut</h2><p className="mt-3 text-sm leading-6 text-brand-foreground/70">Dania pakujemy tuż po przygotowaniu, aby dotarły gorące i świeże.</p></aside>
-      <form onSubmit={wyslij} className="space-y-5 rounded-md border border-border bg-card/95 p-6 shadow-sm backdrop-blur-sm sm:p-8">
+      <aside className="relative overflow-hidden rounded-md bg-gradient-to-br from-ink via-ink to-brand/40 p-7 text-brand-foreground shadow-brand ring-1 ring-flame/30">
+        <div aria-hidden="true" className="absolute -right-10 -top-10 -z-10 size-40 rounded-full bg-flame/30 blur-3xl" />
+        <Clock3 className="size-9 text-flame" /><h2 className="mt-5 font-display text-2xl font-black uppercase">Czas dostawy: 30 minut</h2><p className="mt-3 text-sm leading-6 text-brand-foreground/70">Dania pakujemy tuż po przygotowaniu, aby dotarły gorące i świeże.</p>
+      </aside>
+      <form onSubmit={wyslij} className="relative space-y-5 overflow-hidden rounded-md border border-flame/20 bg-gradient-to-br from-card/95 to-background/90 p-6 shadow-brand backdrop-blur-sm sm:p-8">
+        <div aria-hidden="true" className="absolute inset-x-0 top-0 h-1.5 bg-gradient-to-r from-brand via-flame to-brand" />
+        <div aria-hidden="true" className="absolute -right-16 -top-16 -z-10 size-48 rounded-full bg-flame/10 blur-3xl" />
         <fieldset><legend className="mb-3 text-sm font-bold">Sposób odbioru</legend><div className="grid grid-cols-2 gap-3">
           <Button type="button" variant={sposob === "Dostawa" ? "brand" : "outline"} onClick={() => setSposob("Dostawa")}><Truck /> Dostawa</Button>
           <Button type="button" variant={sposob === "Odbiór osobisty" ? "brand" : "outline"} onClick={() => setSposob("Odbiór osobisty")}><Package /> Odbiór osobisty</Button>
