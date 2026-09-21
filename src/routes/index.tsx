@@ -1,6 +1,7 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
 import { Clock3, Flame, Phone, ShoppingBag } from "lucide-react";
 import { Button } from "@/components/ui/button";
+import { EntrySplash } from "@/components/entry-splash";
 import heroImage from "@/assets/co-chcesz-hero.jpg";
 import heroVideo from "@/assets/co-chcesz-hero.mp4.asset.json";
 import { telefon, telefonWidoczny } from "@/lib/site-data";
@@ -22,6 +23,7 @@ export const Route = createFileRoute("/")({
 function StronaGlowna() {
   return (
     <div className="bg-background">
+      <EntrySplash />
       <section className="relative flex min-h-[92svh] items-center overflow-hidden text-brand-foreground">
         <video autoPlay muted loop playsInline poster={heroImage} className="absolute inset-0 h-full w-full object-cover" aria-label="Kaczka po pekińsku i kurczak z grilla">
           <source src={heroVideo.url} type="video/mp4" />
