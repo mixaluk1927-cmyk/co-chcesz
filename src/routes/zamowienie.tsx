@@ -27,10 +27,10 @@ function ZamowieniePage() {
     window.location.href = `https://wa.me/48792697582?text=${encodeURIComponent(tekst)}`;
   };
   return <div className="min-h-screen pb-24">
-    <section className="relative overflow-hidden px-5 pb-16 pt-32 lg:px-8">
+    <section className="relative flex min-h-[92svh] items-center overflow-hidden">
       <img src={splashImage} alt="" aria-hidden="true" className="absolute inset-0 h-full w-full object-cover" />
       <div aria-hidden="true" className="absolute inset-0 bg-ink/75" />
-      <div className="relative">
+      <div className="relative w-full px-5 pb-16 pt-32 lg:px-8">
         <PageHeading onDark eyebrow="Szybko i wygodnie" title="Zamówienie" text="Wypełnij formularz, a gotowe zamówienie otworzy się w WhatsApp." />
       </div>
     </section>
