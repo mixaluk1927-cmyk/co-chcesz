@@ -2,6 +2,7 @@ import { createFileRoute, Link } from "@tanstack/react-router";
 import { ArrowRight } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { PageHeading } from "@/components/page-heading";
+import { FireGlowBackground } from "@/components/fire-glow-background";
 import { dania } from "@/lib/site-data";
 
 export const Route = createFileRoute("/menu")({
@@ -14,7 +15,8 @@ export const Route = createFileRoute("/menu")({
 });
 
 function MenuPage() {
-  return <div className="min-h-screen px-5 pb-24 pt-32 lg:px-8">
+  return <div className="relative min-h-screen overflow-hidden bg-gradient-to-br from-flame/15 via-background to-brand/10 px-5 pb-24 pt-32 lg:px-8">
+    <FireGlowBackground />
     <PageHeading eyebrow="Co dziś jesz?" title="Nasze menu" text="Wyraziste smaki, świeże składniki i porcje, które naprawdę sycą." />
     <div className="mx-auto mt-14 grid max-w-7xl gap-6 sm:grid-cols-2 lg:grid-cols-4">
       {dania.map((danie) => <article key={danie.nazwa} className="group overflow-hidden rounded-md border border-border bg-card shadow-sm">
