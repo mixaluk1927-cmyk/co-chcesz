@@ -1,36 +1,20 @@
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import splashImage from "@/assets/co-chcesz-wejscie.jpg";
 
-const STORAGE_KEY = "co-chcesz-wejscie-widziane";
-
 /**
- * Pełnoekranowa "brama wejściowa" widoczna przy pierwszym wejściu na stronę główną.
+ * Pełnoekranowa "brama wejściowa" widoczna przy każdym wejściu na stronę główną.
+ * Domyślnie widoczna od razu (także w HTML renderowanym przez serwer) — dzięki temu
+ * nie ma ułamka sekundy, w którym widać stronę pod spodem, zanim pojawi się zasłona.
  * Kliknięcie (np. na kaczkę) chowa zasłonę i odsłania resztę strony.
- * Po wejściu raz w danej sesji przeglądarki nie pokazuje się ponownie.
  */
 export function EntrySplash() {
-  const [visible, setVisible] = useState(false);
+  const [visible, setVisible] = useState(true);
   const [closing, setClosing] = useState(false);
-
-  useEffect(() => {
-    try {
-      if (!sessionStorage.getItem(STORAGE_KEY)) {
-        setVisible(true);
-      }
-    } catch {
-      setVisible(true);
-    }
-  }, []);
 
   if (!visible) return null;
 
   function handleEnter() {
     setClosing(true);
-    try {
-      sessionStorage.setItem(STORAGE_KEY, "1");
-    } catch {
-      // ignore ‒ brak dostępu do sessionStorage nie powinien blokować wejścia
-    }
     window.setTimeout(() => setVisible(false), 500);
   }
 
