@@ -163,4 +163,24 @@
 @media (prefers-reduced-motion: no-preference) {
   .reveal { animation: reveal 700ms ease-out both; }
   @keyframes reveal { from { opacity: 0; transform: translateY(16px); } to { opacity: 1; transform: translateY(0); } }
+
+  .drift-blob-a { animation: drift-a 18s ease-in-out infinite; }
+  .drift-blob-b { animation: drift-b 22s ease-in-out infinite; }
+  @keyframes drift-a { 0%, 100% { transform: translate3d(-8%, -6%, 0) scale(1); } 50% { transform: translate3d(10%, 12%, 0) scale(1.18); } }
+  @keyframes drift-b { 0%, 100% { transform: translate3d(8%, 8%, 0) scale(1.1); } 50% { transform: translate3d(-12%, -8%, 0) scale(0.92); } }
+
+  .ember-particle { animation-name: ember-rise; animation-timing-function: ease-in; animation-iteration-count: infinite; }
+  @keyframes ember-rise {
+    0% { transform: translateY(0) scale(0.6); opacity: 0; }
+    15% { opacity: 0.9; }
+    100% { transform: translateY(-160px) scale(1); opacity: 0; }
+  }
+}
+
+.ember-particle {
+  position: absolute;
+  bottom: 0;
+  border-radius: 9999px;
+  filter: blur(2px);
+  opacity: 0.5;
 }

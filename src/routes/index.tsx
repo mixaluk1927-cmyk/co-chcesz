@@ -47,8 +47,34 @@ function StronaGlowna() {
           </div>
         </div>
       </section>
-      <section className="px-5 py-20 lg:px-8">
-        <div className="mx-auto grid max-w-7xl items-center gap-10 md:grid-cols-2">
+      <section className="relative overflow-hidden px-5 py-20 lg:px-8">
+        <div aria-hidden className="pointer-events-none absolute inset-0 overflow-hidden">
+          <div className="drift-blob-a absolute -left-32 -top-20 size-[26rem] rounded-full bg-flame/25 blur-3xl" />
+          <div className="drift-blob-b absolute -right-24 bottom-0 size-[24rem] rounded-full bg-brand/20 blur-3xl" />
+          {[
+            { left: "6%", size: 5, duration: "7s", delay: "0s" },
+            { left: "16%", size: 3, duration: "9s", delay: "1.4s" },
+            { left: "29%", size: 4, duration: "8s", delay: "3s" },
+            { left: "44%", size: 3, duration: "10s", delay: "0.6s" },
+            { left: "58%", size: 5, duration: "7.5s", delay: "2.2s" },
+            { left: "71%", size: 3, duration: "9.5s", delay: "4s" },
+            { left: "83%", size: 4, duration: "8.5s", delay: "1s" },
+            { left: "93%", size: 3, duration: "11s", delay: "2.8s" },
+          ].map((ember, i) => (
+            <span
+              key={i}
+              className="ember-particle bg-flame"
+              style={{
+                left: ember.left,
+                width: ember.size,
+                height: ember.size,
+                animationDuration: ember.duration,
+                animationDelay: ember.delay,
+              }}
+            />
+          ))}
+        </div>
+        <div className="relative z-10 mx-auto grid max-w-7xl items-center gap-10 md:grid-cols-2">
           <div><p className="text-sm font-black uppercase text-brand">Smak bez kompromisów</p><h2 className="mt-3 font-display text-4xl font-black uppercase leading-tight sm:text-5xl">Dwa ognie.<br />Jeden wielki apetyt.</h2></div>
           <div><p className="text-lg leading-8 text-muted-foreground">Chrupiąca kaczka po pekińsku, soczysty kurczak prosto z grilla i świeże dodatki. Przygotowujemy wszystko na bieżąco, żeby każde zamówienie smakowało dokładnie tak, jak trzeba.</p><Button asChild variant="brand" size="lg" className="mt-6"><Link to="/zamowienie" search={{ danie: "" }}>Zamów teraz</Link></Button></div>
         </div>
