@@ -48,8 +48,9 @@ function StronaGlowna() {
           </div>
         </div>
       </section>
-      <section className="relative overflow-hidden px-5 py-20 lg:px-8">
+      <section className="relative overflow-hidden bg-gradient-to-br from-flame/20 via-background to-brand/15 px-5 py-20 lg:px-8">
         <FireGlowBackground />
+        <div aria-hidden="true" className="pointer-events-none absolute inset-x-0 bottom-0 -z-10 h-2/3 bg-gradient-to-t from-brand/25 via-flame/5 to-transparent" />
         <div className="relative z-10 mx-auto grid max-w-7xl items-center gap-10 md:grid-cols-2">
           <div><p className="text-sm font-black uppercase text-brand">Smak bez kompromisów</p><h2 className="mt-3 font-display text-4xl font-black uppercase leading-tight sm:text-5xl">Dwa ognie.<br />Jeden wielki apetyt.</h2></div>
           <div><p className="text-lg leading-8 text-muted-foreground">Chrupiąca kaczka po pekińsku, soczysty kurczak prosto z grilla i świeże dodatki. Przygotowujemy wszystko na bieżąco, żeby każde zamówienie smakowało dokładnie tak, jak trzeba.</p><Button asChild variant="brand" size="lg" className="mt-6"><Link to="/zamowienie" search={{ danie: "" }}>Zamów teraz</Link></Button></div>
